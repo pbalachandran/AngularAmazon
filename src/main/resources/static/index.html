@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="AmazonApp">
+    <head>
+        <title>{Amazon}</title>
+        <script src="/webjars/angularjs/1.4.9/angular.js"></script>
+        <script src="/webjars/angularjs/1.4.9/angular-resource.js"></script>
+        <script src="/webjars/angularjs/1.4.9/angular-route.js"></script>
+        <script src="/webjars/angularjs/1.4.9/angular-messages.js"></script>
+        <script src="/js/moduleDef.js"></script>
+        <script src="/js/validateUsernameDir.js"></script>
+        <script src="/js/routes.js"></script>
+        <script src="/js/AccountFactory.js"></script>
+        <script src="/js/ShoppingCartFactory.js"></script>
+        <script src="/js/CatalogController.js"></script>
+        <script src="/js/AccountController.js"></script>
+        <script src="/js/AvatarController.js"></script>
+        <script src="/js/ShoppingCartController.js"></script>
+        <script src="/js/ShoppingCartDisplayController.js"></script>
+        <script src="/js/ShoppingCartFillController.js"></script>
+    </head>
+    <body>
+        <h2>Welcome to {Amazon}!</h2>
+        <br/>
+        <div class="home-section">
+            <ul class="menu-list">
+                <li><a href="#/profile">Create User Profile</a></li>
+                <li><a href="#/catalog">Browse Catalog</a></li>
+                <li><a href="#/createCart">Create Shopping Cart</a></li>
+            </ul>
+        </div>
+     <div ng-view=""></div>
+    </body>
+</html>

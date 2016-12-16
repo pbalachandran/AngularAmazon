@@ -1,0 +1,1 @@
+ /cygdrive/c/Program\ Files/MySQL/MySQL\ Server\ 5.7/bin/mysqldump -uroot -padmin123 --databases amazon > /cygdrive/c/workspaces3/Amazon/amazon.sql

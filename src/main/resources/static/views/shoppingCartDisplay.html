@@ -1,0 +1,44 @@
+<div ng-controller="ShoppingCartDisplayController">
+    <h2>{Amazon} Shopping Cart</h2>
+    <div>
+        <b>Shopping Cart Id:</b>{{shoppingCartId}}
+    </div>
+    <div>
+        <br/>
+    </div>
+    <div ng-hide="!orderItems.length">
+        <div ng-repeat="orderItem in orderItems">
+            <div>
+                <b>Name:</b>{{orderItem.inventoryItem.name}}
+            </div>
+            <div>
+                <b>Description:</b>{{orderItem.inventoryItem.description}}
+            </div>
+            <div>
+                <b>Unit Price:</b>{{orderItem.inventoryItem.unitPrice | currency}}
+            </div>
+            <div>
+                <b>Quantity:</b>{{orderItem.quantity}}
+            </div>
+            <div>
+                <p>
+                    <a href="javascript:void(0)" ng-click="removeFromCart(shoppingCartId, orderItem.orderItemId)">Remove</a>
+                </p>
+            </div>
+            <div>
+                <br/>
+            </div>
+        </div>
+    </div>
+    <div>
+        <b>Status:</b>{{status}}
+    </div>
+    <div>
+        <br/>
+    </div>
+    <div>
+        <p>
+            <a href="javascript:void(0)" ng-click="ShoppingCartFactory.shop(shoppingCartId)">Shop</a>
+        </p>
+    </div>
+</div>

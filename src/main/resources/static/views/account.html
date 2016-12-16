@@ -1,0 +1,49 @@
+<div ng-controller="AccountController">
+        <form ng-submit="submit()">
+            <div>
+                <label>Username</label>
+                <input type="text" ng-model="username" />
+            </div>
+             <br/>
+            <div>
+                <label>Firstname</label>
+                <input type="text" ng-model="firstname" />
+            </div>
+             <br/>
+            <div>
+                <label>Lastname</label>
+                <input type="text" ng-model="lastname" />
+            </div>
+            <br/>
+            <div>
+                <label>Password</label>
+                <input type="text" ng-model="password"/>
+            </div>
+            <br/><br/>
+            <div>
+                <label>CreditCard#</label>
+                <input type="text" ng-model="creditCardNumber" />
+            </div>
+            <br/><br/>
+            <div>
+                <label> CreditCardType </label>
+                <select ng-model="ccTypeName">
+                    <option ng-repeat="cardType in cardTypes" value="{{cardType}}">{{cardType}}</option>
+                </select>
+            </div>
+            <br/><br/>
+            <div>
+                <label>ExpiryDate</label>
+                <input type="text" ng-model="expiryDate" />
+            </div>
+            <br/><br/>
+            <div>
+                <label>SecurityCode</label>
+                <input type="text" ng-model="securityCode"/>
+            </div>
+             <br/><br/>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+    </form>
+</div>

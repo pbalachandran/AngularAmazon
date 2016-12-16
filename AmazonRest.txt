@@ -1,0 +1,93 @@
+CreateCreditCard: http://localhost:8080/profile/creditcard
+{
+  
+  "creditCardNumber" : "9818191938828",
+  "creditCardType" : "http://localhost:8080/profile/creditcardtype/VISA",
+  "firstname" : "Renuka",
+  "lastname" : "Chandrasekaran",
+  "expiryDate" : "12/20",
+  "securityCode" : "767"
+}
+
+CreateAccount: http://localhost:8080/profile/account
+{
+  "username":"rchandrasekaran",
+  "firstname": "Renuka",
+  "lastname" : "Chandrasekaran",
+  "password" : "amazon",
+  "creditCard" : "http://localhost:8080/profile/creditcard/2"
+}
+
+CreateCategory:http://localhost:8080/browse/category (POST)
+{
+  "name": "Shoes"
+}
+
+CreateInventoryItem1: http://localhost:8080/browse/inventoryitem
+{
+  	"name": "iPad",
+	"description": "Apple iPad 8Gb",
+	"unitPrice": "400.99",
+	"inventory": "100",
+  	"category" : "http://localhost:8080/browse/category/Electronics"
+}
+
+CreateInventoryItem2: http://localhost:8080/browse/inventoryitem (POST)
+{
+  	"name": "Oster Blender",
+	"description": "Oster Blender",
+	"unitPrice": "105.99",
+	"inventory": "10",
+  	"category" : "http://localhost:8080/browse/category/Home%20Appliances"
+}
+
+GetCategories: http://localhost:8080/browse/categories
+
+GetCategory: http://localhost:8080/browse/category/Furniture
+
+RetrieveInventoryItems: http://localhost:8080/browse/inventoryitems
+
+CreateShoppingCart: http://localhost:8080/shopping/cart/pbalachandran (POST)
+
+DeleteShoppingCart: http://localhost:8080/shopping/cart/1 (DELETE)
+
+FindShoppingCart: http://localhost:8080/shopping/cart/1
+
+AddOrderItem: http://localhost:8080/shopping/order (POST)
+{
+  "quantity" : "1",
+  "inventoryItemId" : "21",
+  "shoppingCartId" : "1"
+}
+
+DeleteOrderItem: http://localhost:8080/shopping/order (DELETE)
+{
+  "orderItemId" : "3",
+  "shoppingCartId" : "1"
+}
+
+CreateShippingInfo: http://localhost:8080/checkout/shippinginfo (POST)
+{
+  "firstname" : "Pradeep",
+  "lastname" : "Balachandran",
+  "address" : "1 Infinity Loop",
+  "city" : "Cupertino",
+  "state" : "CA",
+  "zip" : "76021"
+}
+
+CreateInvoice: http://localhost:8080/checkout/invoice/ (POST)
+{
+  "shoppingCartId" : "1",
+  "creditCardId" : "1",
+  "shippingInfoId" : "1"
+}
+
+RetrieveInvoice: http://localhost:8080/checkout/invoice/1
+
+FindShoppingCartByUsernameStatus: http://localhost:8080/shopping/carts/pbalachandran/complete
+
+
+
+
+
