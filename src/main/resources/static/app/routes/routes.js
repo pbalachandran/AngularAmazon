@@ -1,0 +1,21 @@
+angular.module('AmazonApp').config(function($routeProvider) {
+                    $routeProvider.when('/catalog', {
+                                        controller: 'CatalogController',
+                                        templateUrl: '/app/views/catalog.html'
+                                }).when('/profile', {
+                                        controller: 'AccountController',
+                                        templateUrl: '/app/views/account.html'
+                                }).when('/avatar', {
+                                        controller: 'AvatarController',
+                                        templateUrl: '/app/views/avatar.html'
+                                }).when('/createCart', {
+                                        controller: 'ShoppingCartController',
+                                        templateUrl: '/app/views/shoppingCart.html'
+                                }).when('/displayCart', {
+                                        controller: 'ShoppingCartDisplayController',
+                                        templateUrl: '/app/views/shoppingCartDisplay.html'
+                                }).when('/shop', {
+                                        controller: 'ShoppingCartFillController',
+                                        templateUrl: '/app/views/shoppingCartFill.html'
+                                }).otherwise({redirectTo: '/'});
+                    });

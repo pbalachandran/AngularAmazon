@@ -1,0 +1,16 @@
+<div ng-controller="ShoppingCartController">
+    <form name="shoppingCartForm" ng-submit="createCart()">
+        <div>
+            <label>Username to be associated with Shopping Cart </label>
+            <input type="text" name="username" ng-model="username" required validate-username/>
+            <div ng-messages="shoppingCartForm.username.$error" role="alert">
+                <div ng-message="required">Enter a username</div>
+                <div ng-message="validate">Enter a valid username</div>
+            </div>
+        </div>
+        <div><br/></div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
