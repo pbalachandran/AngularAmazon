@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html ng-app="AmazonApp">
     <head>
         <title>{Amazon}</title>
@@ -6,28 +6,33 @@
         <script src="/webjars/angularjs/1.4.9/angular-resource.js"></script>
         <script src="/webjars/angularjs/1.4.9/angular-route.js"></script>
         <script src="/webjars/angularjs/1.4.9/angular-messages.js"></script>
-        <script src="/js/moduleDef.js"></script>
-        <script src="/js/validateUsernameDir.js"></script>
-        <script src="/js/routes.js"></script>
-        <script src="/js/AccountFactory.js"></script>
-        <script src="/js/ShoppingCartFactory.js"></script>
-        <script src="/js/CatalogController.js"></script>
-        <script src="/js/AccountController.js"></script>
-        <script src="/js/AvatarController.js"></script>
-        <script src="/js/ShoppingCartController.js"></script>
-        <script src="/js/ShoppingCartDisplayController.js"></script>
-        <script src="/js/ShoppingCartFillController.js"></script>
+        <script src="/app/app.js"></script>
+        <script src="/app/directives/validateUsernameDir.js"></script>
+        <script src="/app/directives/uniqueUsernameDir.js"></script>
+        <script src="/app/routes/routes.js"></script>
+        <script src="/app/services/AccountFactory.js"></script>
+        <script src="/app/services/ShoppingCartFactory.js"></script>
+        <script src="/app/controllers/CatalogController.js"></script>
+        <script src="/app/controllers/AccountController.js"></script>
+        <script src="/app/controllers/AvatarController.js"></script>
+        <script src="/app/controllers/ShoppingCartController.js"></script>
+        <script src="/app/controllers/ShoppingCartDisplayController.js"></script>
+        <script src="/app/controllers/ShoppingCartFillController.js"></script>
     </head>
     <body>
-        <h2>Welcome to {Amazon}!</h2>
         <br/>
         <div class="home-section">
+            <p>
+                <img src="/app/views/images/amazon-logo.jpg" alt="{Amazon}" align="top"> 
+            </p>
             <ul class="menu-list">
                 <li><a href="#/profile">Create User Profile</a></li>
                 <li><a href="#/catalog">Browse Catalog</a></li>
                 <li><a href="#/createCart">Create Shopping Cart</a></li>
             </ul>
         </div>
-     <div ng-view=""></div>
+        <div id="main">
+            <div ng-view=""></div>
+        </div>
     </body>
 </html>

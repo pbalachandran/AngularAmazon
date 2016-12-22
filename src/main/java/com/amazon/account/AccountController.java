@@ -30,7 +30,7 @@ public class AccountController {
 		Account act = accountRepository.findByUsername(username);
 		if (act == null) {
 			act = new Account();
-			act.setUsername("invalid-user");
+			act.setUsername("Username not found");
 		}
 		return act;
 	}

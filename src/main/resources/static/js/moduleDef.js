@@ -1,1 +1,0 @@
-angular.module('AmazonApp', ['ngRoute', 'ngMessages']);
