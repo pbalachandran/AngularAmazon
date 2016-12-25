@@ -5,5 +5,7 @@ angular.module('AmazonApp').controller('AvatarController',
                                                 $scope.username = data.username;
                                                 $scope.firstname = data.firstname;
                                                 $scope.lastname = data.lastname;
-                                        });
+                                                $scope.creditCardNumber = data.creditCard.creditCardNumber;
+                                                $scope.creditCardType = data.creditCard.creditCardType.creditCardTypeName;
+                                            });
 });
