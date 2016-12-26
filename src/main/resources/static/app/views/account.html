@@ -1,12 +1,12 @@
-<div ng-controller="AccountController">
+<div align="center" ng-controller="AccountController" >
     <h2 style="color:brown">{Amazon} User Profile</h2>
         <form name="accountCreationForm" ng-submit="submit()">
             <div>
                 <label>Username</label>
                 <input type="text" name="username" ng-model="username" required unique-username/>
-                <div ng-messages="accountCreationForm.username.$error" role="alert">
-                    <div ng-message="required">Enter a username</div>
-                    <div ng-message="unique">Username already exists, pick a new one</div>
+                <div align="center" ng-messages="accountCreationForm.username.$error" role="alert">
+                    <div style="color:red" ng-message="required">Enter a username</div>
+                    <div style="color:red" ng-message="unique">Username already exists, pick a new one</div>
                 </div>
             </div>
              <br/>

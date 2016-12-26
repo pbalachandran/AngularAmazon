@@ -21,18 +21,19 @@
     </head>
     <body>
         <br/>
-        <p style="text-align:center;"><img src="/app/views/images/amazon-logo.jpg" alt="{Amazon}"/></p>
+        <p align="center"><img src="/app/views/images/amazon-logo.jpg" alt="{Amazon}"/></p>
         <div>
             <div class="home-section" style="width:100%">
-                <div id="left" style="float:left; width:25%;">
+                <div id="left" style="float:left; width:35%;">
                     <a href="#/catalog" style="color:green">Browse Catalog</a>
                 </div>
                 <div id="right" style="float:right; width:25%;">
                     <div><a href="#/profile" style="color:brown">Create User Profile</a></div>
                     <div><a href="#/createCart" style="color:orange">Create Shopping Cart</a></div>
                 </div>
-                <div><br/></div>
-                <div id="view" ng-view="" style="float:center; width:50%;"></div>
+                <br>
+                <div ng-view></div>
+                <br>
             </div>
         </div>
     </body>
