@@ -14,6 +14,9 @@ angular.module('AmazonApp').config(function($routeProvider) {
                                 }).when('/displayCart', {
                                         controller: 'ShoppingCartDisplayController',
                                         templateUrl: '/app/views/shoppingCartDisplay.html'
+                                }).when('/retrieveCarts', {
+                                        controller: 'ShoppingCartsRetrieveController',
+                                        templateUrl: '/app/views/shoppingCartsRetrieve.html'
                                 }).when('/shop', {
                                         controller: 'ShoppingCartFillController',
                                         templateUrl: '/app/views/shoppingCartFill.html'

@@ -1,0 +1,60 @@
+<div align="center" style="color:orange" ng-controller="ShoppingCartsRetrieveController">
+    <h2 >{Amazon} Shopping Cart</h2>
+    <form name="shoppingCartsRetrieveForm" ng-submit="retrieveCarts()">
+        <div style="color:orange" align="center">
+            <label>Username for Shopping Cart </label>
+            <input type="text" name="username" ng-model="username" required validate-username/>
+            <div align="center" ng-messages="shoppingCartsRetrieveForm.username.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a username</div>
+                <div style="color:red" ng-message="validate">Enter a valid username</div>
+            </div>
+        </div>
+        <div><br/></div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <div ng-repeat="shoppingCart in shoppingCarts">
+        <div>
+            <b>Shopping Cart Id:</b>{{shoppingCart.shoppingCartId}}
+        </div>
+        <div>
+            <br/>
+        </div>
+            <div ng-hide="!shoppingCart.orderItems.length">
+            <div ng-repeat="orderItem in orderItems">
+                <div>
+                    <b>Name:</b>{{orderItem.inventoryItem.name}}
+                </div>
+                <div>
+                    <b>Description:</b>{{orderItem.inventoryItem.description}}
+                </div>
+                <div>
+                    <b>Unit Price:</b>{{orderItem.inventoryItem.unitPrice | currency}}
+                </div>
+                <div>
+                    <b>Quantity:</b>{{orderItem.quantity}}
+                </div>
+                <div>
+                    <p>
+                        <a href="javascript:void(0)" style="color:red" ng-click="removeFromCart(shoppingCartId, orderItem.orderItemId)">Remove</a>
+                    </p>
+                </div>
+                <div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <div>
+            <b>Status:</b>{{status}}
+        </div>
+        <div>
+            <br/>
+        </div>
+        <div>
+            <p>
+                <a href="javascript:void(0)" style="color:green" ng-click="ShoppingCartFactory.shop(shoppingCartId)">Shop</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -6,8 +6,8 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                             console.log("Inside create, username: " + aUsername);
                                             var cartURL = 'http://localhost:8080/shopping/cart/' + aUsername;
                                             $http.post(cartURL).success(function(data) {
-                                                                            $location.path('/displayCart').search({shoppingCartId :  data.shoppingCartId});
-                                                                        });
+                                                                    $location.path('/displayCart').search({shoppingCartId :  data.shoppingCartId});
+                                                                });
                                         };
     
                                         scFactory.delete = function(shoppingCartId) {
@@ -19,6 +19,17 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                                     $location.path('/catalog');
                                                 }
                                             });
+                                        };
+    
+                                        scFactory.retrieve = function(aUsername) {
+                                            console.log("Inside retrieve, aUsername: " + aUsername);
+                                            var cartsURL = 'http://localhost:8080/shopping/carts/' + aUsername + '/active';
+                                            
+                                            var defer = $q.defer();
+                                            $http.get(cartsURL).then(function(response) {
+                                                defer.resolve(response.data);
+                                            });
+                                            return defer.promise;
                                         };
 
                                         scFactory.push = function(shoppingCartId, inventoryItemId, quantity) {
@@ -51,14 +62,13 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                                     if (data == true) {
                                                         scFactory.shop(shoppingCartId);
                                                     }
-                                                });
+                                            });
                                         };
 
                                         scFactory.shop = function(shoppingCartId) {
                                             console.log("Inside shop...");
                                             $location.path('/shop').search({shoppingCartId:shoppingCartId});
                                         };
-
 
                                         scFactory.display = function(shoppingCartId) {
                                             console.log("Inside display, shoppingCardId: " + shoppingCartId);
