@@ -1,6 +1,5 @@
-<div align="center" ng-controller="CatalogController">
-    <h2 style="color:blue">{Amazon} Catalog</h2>
-    <div style="color:blue" ng-repeat="category in categories">
+<div align="center" style="color:blue" ng-controller="CatalogController">
+    <div ng-repeat="category in categories">
         <p>
             <a href="javascript:void(0)" ng-click="toggleSelect(category.name)">{{category.name}}</a>
         </p>

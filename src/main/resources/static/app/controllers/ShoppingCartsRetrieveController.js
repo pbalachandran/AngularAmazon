@@ -1,5 +1,6 @@
 angular.module('AmazonApp').controller('ShoppingCartsRetrieveController',
                                        function ($scope, ShoppingCartFactory) {
+                                           $scope.ShoppingCartFactory = ShoppingCartFactory;
     
                                            $scope.retrieveCarts = function() {
                                                var promise = 
