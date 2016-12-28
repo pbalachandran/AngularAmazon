@@ -115,7 +115,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
                 console.log("Username is available for new account");
                 defer.resolve();
             } else {
-                console.log("Username is already in user and not available for new account");
+                console.log("Username is already in use and not available for new account");
                 defer.reject();
             }
         });
