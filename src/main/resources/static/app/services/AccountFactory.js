@@ -5,7 +5,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     acctFactory.createAccount = function($scope) {
         console.log("Create Account...");
         var ccTypeData = {"creditCardTypeName" : $scope.ccTypeName};
-        var ccTypePromise = acctFactory.createCreditCardType(ccTypeData);
+        var ccTypePromise = createCreditCardType(ccTypeData);
         ccTypePromise.then(function(data) {
             $scope.creditCardType = data;
             console.log("CreditCardType: " + $scope.creditCardType.creditCardTypeId);
@@ -20,7 +20,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
                       "expiryDate" : $scope.expiryDate,
                       "securityCode" : $scope.securityCode};
 
-            var ccPromise = acctFactory.createCreditCard(creditCardData);
+            var ccPromise = createCreditCard(creditCardData);
             ccPromise.then(function(data) {
                 $scope.creditCard = data;
 
@@ -41,7 +41,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
                                     }
                     };
 
-                var acctPromise = acctFactory.constructAccount(accountData);
+                var acctPromise = constructAccount(accountData);
                 acctPromise.then(function(data) {
                     console.log("Account created for " + data.username);
                     $location.path('/avatar').search({username : data.username});
@@ -50,7 +50,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
         });
     };
     
-    acctFactory.createCreditCardType = function(ccTypeData) {
+    createCreditCardType = function(ccTypeData) {
         console.log("Create CreditCardType");
         var ccTypeUrl =
             'http://localhost:8080/profile/creditcardtype';
@@ -62,7 +62,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
         return defer.promise;
     };
 
-    acctFactory.createCreditCard = function(creditCardData) {
+    createCreditCard = function(creditCardData) {
         console.log("Create CreditCard");
         var ccUrl = 'http://localhost:8080/profile/creditcard';
         var defer = $q.defer();
@@ -76,7 +76,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
         return defer.promise;
     };
 
-    acctFactory.constructAccount = function(accountData) {
+    constructAccount = function(accountData) {
         console.log("Construct account");
         var defer = $q.defer();                                      
         var accountUrl = 'http://localhost:8080/profile/account';
