@@ -1,64 +1,89 @@
 angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $location) {
 
     var acctFactory = {};
-    acctFactory.constructAccount = function ($scope) {
-        console.log("Create CreditCardType....");
-        var cctype = {"creditCardTypeName" : $scope.ccTypeName};
-        var ccTypeUrl =
-               'http://localhost:8080/profile/creditcardtype/';
-        $http.post(ccTypeUrl, cctype).
-                success(function(data) {
-                    console.log("Retrieve CreditCardType....");
-                    var ccTypeUrl =
-                        'http://localhost:8080/profile/creditcardtype/' + data.creditCardTypeId;
-                        $http.get(ccTypeUrl).
-                                 success(function(data) {
-                                            console.log("Create CreditCard....");
-                                            var cc = {"creditCardNumber": $scope.creditCardNumber,
-                                                      "creditCardType" : {"creditCardTypeId" : data.creditCardTypeId,
-                                                                          "creditCardTypeName" : data.creditCardTypeName},
-                                                      "firstname": $scope.firstname,
-                                                      "lastname" : $scope.lastname,
-                                                      "expiryDate" : $scope.expiryDate,
-                                                      "securityCode" : $scope.securityCode};
+    
+    acctFactory.createAccount = function($scope) {
+        console.log("Create Account...");
+        var ccTypeData = {"creditCardTypeName" : $scope.ccTypeName};
+        var ccTypePromise = acctFactory.createCreditCardType(ccTypeData);
+        ccTypePromise.then(function(data) {
+            $scope.creditCardType = data;
+            console.log("CreditCardType: " + $scope.creditCardType.creditCardTypeId);
+            
+            var creditCardData = 
+                     {"creditCardNumber": $scope.creditCardNumber,
+                      "creditCardType" : 
+                      {"creditCardTypeId" : $scope.creditCardType.creditCardTypeId,
+                       "creditCardTypeName" : $scope.creditCardType.creditCardTypeName},
+                      "firstname": $scope.firstname,
+                      "lastname" : $scope.lastname,
+                      "expiryDate" : $scope.expiryDate,
+                      "securityCode" : $scope.securityCode};
 
-                                            console.log("CC: " + JSON.stringify(cc));
+            var ccPromise = acctFactory.createCreditCard(creditCardData);
+            ccPromise.then(function(data) {
+                $scope.creditCard = data;
 
-                                            var ccUrl = 'http://localhost:8080/profile/creditcard';
-                                            $http.post(ccUrl, cc).
-                                                         success(function(data) {
-                                                                console.log("Retrieve CreditCard....");
-                                                                var getCCUrl = 'http://localhost:8080/profile/creditcard/' + data.creditCardId;
-                                                                $http.get(getCCUrl).
-                                                                             success(function(data) {                                                                       console.log("Create Account....");
-                                                                                 var acct = {"username" : $scope.username,
-                                                                                             "firstname": $scope.firstname,
-                                                                                             "lastname" : $scope.lastname,
-                                                                                             "password" : $scope.password,
-                                                                                             "creditCard" : {"creditCardId" : data.creditCardId,
-                                                                                                             "creditCardNumber" : data.creditCardNumber,
-                                                                                                             "creditCardType" :
-                                                                                                                {"creditCardTypeId": data.creditCardType.creditCardTypeId,
-                                                                                                                 "creditCardTypeName": data.creditCardType.creditCardTypeName},
-                                                                                                             "firstname" : data.firstname,
-                                                                                                             "lastname" : data.lastname,
-                                                                                                             "expiryDate" : data.expiryDate,
-                                                                                                             "securityCode" : data.securityCode
-                                                                                                            }
-                                                                                            };
+                var accountData = 
+                    {"username" : $scope.username,
+                     "firstname": $scope.firstname,
+                     "lastname" : $scope.lastname,
+                     "password" : $scope.password,
+                     "creditCard" : {"creditCardId" : $scope.creditCard.creditCardId,
+                                     "creditCardNumber" : $scope.creditCard.creditCardNumber,
+                                     "creditCardType" :
+                                     {"creditCardTypeId": $scope.creditCard.creditCardType.creditCardTypeId,
+                                      "creditCardTypeName": $scope.creditCard.creditCardType.creditCardTypeName},
+                                      "firstname" : $scope.creditCard.firstname,
+                                      "lastname" : $scope.creditCard.lastname,
+                                      "expiryDate" : $scope.creditCard.expiryDate,
+                                      "securityCode" : $scope.creditCard.securityCode
+                                    }
+                    };
 
-                                                                                 var accountUrl = 'http://localhost:8080/profile/account';
-                                                                                 $http.post(accountUrl, acct).
-                                                                                                success(function(data) {
-                                                                                                    $location.path('/avatar').
-                                                                                                            search({username : data.username});
-
-                                                                                            });
-                                                                             });
-                                                         });
-
-                                 });
+                var acctPromise = acctFactory.constructAccount(accountData);
+                acctPromise.then(function(data) {
+                    console.log("Account created for " + data.username);
+                    $location.path('/avatar').search({username : data.username});
                 });
+            });
+        });
+    };
+    
+    acctFactory.createCreditCardType = function(ccTypeData) {
+        console.log("Create CreditCardType");
+        var ccTypeUrl =
+            'http://localhost:8080/profile/creditcardtype';
+        console.log("ccTypeUrl " + ccTypeUrl);
+        var defer = $q.defer();
+        $http.post(ccTypeUrl, ccTypeData).then(function(response) {
+            defer.resolve(response.data);
+        });
+        return defer.promise;
+    };
+
+    acctFactory.createCreditCard = function(creditCardData) {
+        console.log("Create CreditCard");
+        var ccUrl = 'http://localhost:8080/profile/creditcard';
+        var defer = $q.defer();
+        $http.post(ccUrl, creditCardData).success(function(data) {
+            console.log("Retrieve newly created CreditCard....");
+            var getCCUrl = 'http://localhost:8080/profile/creditcard/' + data.creditCardId;
+            $http.get(getCCUrl).then(function(response) {
+                defer.resolve(response.data);
+            });
+        });
+        return defer.promise;
+    };
+
+    acctFactory.constructAccount = function(accountData) {
+        console.log("Construct account");
+        var defer = $q.defer();                                      
+        var accountUrl = 'http://localhost:8080/profile/account';
+        $http.post(accountUrl, accountData).then(function(response) {
+            defer.resolve(response.data);
+        });
+        return defer.promise;
     };
 
     acctFactory.validateUsername = function (username) {
