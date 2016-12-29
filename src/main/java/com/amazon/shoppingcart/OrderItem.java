@@ -24,7 +24,7 @@ public class OrderItem {
 	@Column(name="quantity")
 	private int quantity;
 	
-	@ManyToOne(cascade=CascadeType.DETACH)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name = "inventoryitemid")
 	private InventoryItem inventoryItem;
 	

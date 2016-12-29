@@ -30,7 +30,7 @@ public class ShoppingCart {
 	private int shoppingCartId;
 	
 	@JsonManagedReference
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL, mappedBy="shoppingCart")
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REFRESH, mappedBy="shoppingCart", orphanRemoval=true)
 	private Set<OrderItem> orderItems = new HashSet<OrderItem>();
 	
 	@OneToOne(cascade=CascadeType.ALL)	
