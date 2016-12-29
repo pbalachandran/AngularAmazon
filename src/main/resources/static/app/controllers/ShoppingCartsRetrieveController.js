@@ -7,6 +7,7 @@ angular.module('AmazonApp').controller('ShoppingCartsRetrieveController',
                                                   ShoppingCartFactory.retrieve($scope.username);
                                                   promise.then(function(data) {
                                                      $scope.shoppingCarts = data;
+                                                     $scope.isNoRetrievedCarts = !data.length;
                                                   });
                                            };
                                        });

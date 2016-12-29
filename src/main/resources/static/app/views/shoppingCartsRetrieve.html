@@ -13,6 +13,11 @@
             <button type="submit">Submit</button>
         </div>
     </form>
+
+    <div ng-if="isNoRetrievedCarts">
+        <b>No active carts found, please create a new one</b>
+    </div>
+    
     <div ng-repeat="shoppingCart in shoppingCarts">
         <div>
             <b>Shopping Cart Id:</b>{{shoppingCart.shoppingCartId}}
