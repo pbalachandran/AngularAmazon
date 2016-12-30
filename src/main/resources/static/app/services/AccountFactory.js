@@ -3,7 +3,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     var acctFactory = {};
     
     acctFactory.createAccount = function($scope) {
-        console.log("Create Account...");
+        console.log("createAccount()");
         var ccTypeData = {"creditCardTypeName" : $scope.ccTypeName};
         var ccTypePromise = createCreditCardType(ccTypeData);
         ccTypePromise.then(function(data) {
@@ -51,7 +51,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     };
     
     createCreditCardType = function(ccTypeData) {
-        console.log("Create CreditCardType");
+        console.log("createCreditCardType()");
         var ccTypeUrl =
             'http://localhost:8080/profile/creditcardtype';
         console.log("ccTypeUrl " + ccTypeUrl);
@@ -63,7 +63,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     };
 
     createCreditCard = function(creditCardData) {
-        console.log("Create CreditCard");
+        console.log("createCreditCard()");
         var ccUrl = 'http://localhost:8080/profile/creditcard';
         var defer = $q.defer();
         $http.post(ccUrl, creditCardData).success(function(data) {
@@ -77,7 +77,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     };
 
     constructAccount = function(accountData) {
-        console.log("Construct account");
+        console.log("constructAccount()");
         var defer = $q.defer();                                      
         var accountUrl = 'http://localhost:8080/profile/account';
         $http.post(accountUrl, accountData).then(function(response) {
@@ -87,7 +87,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     };
 
     acctFactory.validateUsername = function (username) {
-        console.log("Inside validateUsername.....");
+        console.log("validateUsername()");
         var getCCUrl = 'http://localhost:8080/profile/account/' + username;
         var defer = $q.defer();
         $http.get(getCCUrl).
@@ -105,7 +105,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     };
     
     acctFactory.uniqueUsername = function (username) {
-        console.log("Inside validateUsername.....");
+        console.log("validateUsername()");
         var getCCUrl = 'http://localhost:8080/profile/account/' + username;
         var defer = $q.defer();
         $http.get(getCCUrl).

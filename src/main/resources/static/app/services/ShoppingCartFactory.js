@@ -3,7 +3,7 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
 
                                         var scFactory = {};
                                         scFactory.create = function(aUsername) {
-                                            console.log("Inside create, username: " + aUsername);
+                                            console.log("create(), username: " + aUsername);
                                             var cartURL = 'http://localhost:8080/shopping/cart/' + aUsername;
                                             $http.post(cartURL).success(function(data) {
                                                                     $location.path('/displayCart').search({shoppingCartId :  data.shoppingCartId});
@@ -11,7 +11,7 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                         };
     
                                         scFactory.delete = function(shoppingCartId) {
-                                            console.log("Inside delete, shoppingCartId: " + shoppingCartId);
+                                            console.log("delete(), shoppingCartId: " + shoppingCartId);
                                             var cartURL = 'http://localhost:8080/shopping/cart/' + shoppingCartId;
                                             $http.delete(cartURL).success(function(data) {
                                                 console.log("Delete was: " + data);
@@ -22,7 +22,7 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                         };
     
                                         scFactory.retrieve = function(aUsername) {
-                                            console.log("Inside retrieve, aUsername: " + aUsername);
+                                            console.log("retrieve(), aUsername: " + aUsername);
                                             var cartsURL = 'http://localhost:8080/shopping/carts/' + aUsername + '/active';
                                             
                                             var defer = $q.defer();
@@ -33,7 +33,7 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                         };
 
                                         scFactory.push = function(shoppingCartId, inventoryItemId, quantity) {
-                                            console.log("Inside push...");
+                                            console.log("push()");
                                             var url = 'http://localhost:8080/shopping/order';
 
                                             console.log("shoppingCartId: " + shoppingCartId);
@@ -52,7 +52,7 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                         };
 
                                         scFactory.pop = function(shoppingCartId, orderItemId) {
-                                            console.log("Inside pop...");
+                                            console.log("pop()");
                                             console.log("shoppingCartId: " + shoppingCartId);
                                             console.log("orderItemId: " + orderItemId);
 
@@ -66,12 +66,12 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                         };
 
                                         scFactory.shop = function(shoppingCartId) {
-                                            console.log("Inside shop...");
+                                            console.log("shop()");
                                             $location.path('/shop').search({shoppingCartId:shoppingCartId});
                                         };
 
                                         scFactory.display = function(shoppingCartId) {
-                                            console.log("Inside display, shoppingCardId: " + shoppingCartId);
+                                            console.log("display(), shoppingCardId: " + shoppingCartId);
                                             $location.path('/displayCart').search({shoppingCartId : shoppingCartId});
                                         };
 

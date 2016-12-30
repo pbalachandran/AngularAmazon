@@ -5,7 +5,7 @@ angular.module('AmazonApp').controller('AccountController',
                                                                 "DISCOVER"];
 
                                             $scope.submit = function() {
-                                                                console.log("Inside Submit()...");
+                                                                console.log("submit()");
                                                                 AccountFactory.createAccount($scope);
                                                             };
                                        });

@@ -13,7 +13,7 @@ angular.module('AmazonApp').controller('ShoppingCartDisplayController',
                                             });
 
                                             $scope.removeFromCart = function(shopppingCartId, orderItemId) {
-                                                                        console.log("Inside removeFromCart...");
+                                                                        console.log("removeFromCart()");
                                                                         ShoppingCartFactory.pop(shopppingCartId, orderItemId);
                                                                     };
                                         });

@@ -1,7 +1,8 @@
 angular.module('AmazonApp').controller('ShoppingCartFillController',
-                                       function($scope, $http, $routeParams, ShoppingCartFactory) {
+                                       function($scope, $http, $routeParams, ShoppingCartFactory, InvoiceFactory) {
                                             $scope.shoppingCartId = $routeParams.shoppingCartId;
                                             $scope.ShoppingCartFactory = ShoppingCartFactory;
+                                            $scope.InvoiceFactory = InvoiceFactory;
 
                                             $http.get('http://localhost:8080/browse/categories').
                                                             success(function(data) {
@@ -18,7 +19,7 @@ angular.module('AmazonApp').controller('ShoppingCartFillController',
                                             };
 
                                             $scope.addToCart = function(shoppingCartId, inventoryItemId, quantity) {
-                                                        console.log("addToCart...");
+                                                        console.log("addToCart()");
                                                         var promise = 
                                                             ShoppingCartFactory.push(shoppingCartId, inventoryItemId, quantity);
                                                         promise.then(function(data) {
