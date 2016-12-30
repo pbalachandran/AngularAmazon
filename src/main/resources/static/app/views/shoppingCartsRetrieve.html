@@ -15,10 +15,12 @@
     </form>
 
     <div ng-if="isNoRetrievedCarts">
+        <br/>
         <b>No active carts found, please create a new one</b>
     </div>
     
     <div ng-repeat="shoppingCart in shoppingCarts">
+        <br/>
         <div>
             <b>Shopping Cart Id:</b>{{shoppingCart.shoppingCartId}}
         </div>
