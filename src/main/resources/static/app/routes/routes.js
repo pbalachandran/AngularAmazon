@@ -20,5 +20,8 @@ angular.module('AmazonApp').config(function($routeProvider) {
                                 }).when('/shop', {
                                         controller: 'ShoppingCartFillController',
                                         templateUrl: '/app/views/shoppingCartFill.html'
+                                }).when('/shippingInfo', {
+                                    controller: 'ShippingInfoController',
+                                    templateUrl: '/app/views/shippingInfo.html'
                                 }).otherwise({redirectTo: '/'});
                     });

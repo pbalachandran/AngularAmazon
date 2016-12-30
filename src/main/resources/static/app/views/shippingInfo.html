@@ -1,0 +1,37 @@
+<div align="center" style="color:blue" ng-controller="InvoiceController">
+    <div>
+        <b>Shopping Cart Id:</b>{{shoppingCartId}}
+    </div>
+    <br/>
+    <form name="shippingInformationForm" ng-submit="createShippingInfo()">
+        <div>
+            <label>Firstname</label>
+            <input type="text" ng-model="firstname"/>
+        </div>
+        <br/>
+        <div>
+            <label>Lastname</label>
+            <input type="text" ng-model="lastname"/>
+        </div>
+        <br/>
+        <div>
+            <label>Address</label>
+            <input type="text" ng-model="address"/>
+        </div>
+        <br/>
+        <div>
+            <label>City</label>
+            <input type="text" ng-model="city" />
+        </div>
+        <br/>
+        <div>
+            <label>State</label>
+            <input type="text" ng-model="state" />
+        </div>
+        <br/>
+        <div>
+            <label>Zip</label>
+            <input type="text" ng-model="zip"/>
+        </div>
+    </form>
+</div>
