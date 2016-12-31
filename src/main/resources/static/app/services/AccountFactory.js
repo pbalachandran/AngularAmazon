@@ -88,9 +88,9 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
 
     acctFactory.validateUsername = function (username) {
         console.log("validateUsername()");
-        var getCCUrl = 'http://localhost:8080/profile/account/' + username;
+        var accountUrl = 'http://localhost:8080/profile/account/' + username;
         var defer = $q.defer();
-        $http.get(getCCUrl).
+        $http.get(accountUrl).
             success(function(data) {
                 console.log("data.username: " + data.username);
             if (data.username == 'Username not found') {
@@ -106,9 +106,9 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     
     acctFactory.uniqueUsername = function (username) {
         console.log("validateUsername()");
-        var getCCUrl = 'http://localhost:8080/profile/account/' + username;
+        var accountUrl = 'http://localhost:8080/profile/account/' + username;
         var defer = $q.defer();
-        $http.get(getCCUrl).
+        $http.get(accountUrl).
         success(function(data) {
             console.log("data.username: " + data.username);
             if (data.username == 'Username not found') {
