@@ -38,7 +38,7 @@ public class ShoppingCart {
 	private Invoice invoice;
 	
 	@JsonBackReference
-	@ManyToOne(cascade=CascadeType.DETACH)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="username")
 	private Account account;
 	

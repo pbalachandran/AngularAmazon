@@ -29,7 +29,7 @@ public class OrderItem {
 	private InventoryItem inventoryItem;
 	
 	@JsonBackReference
-	@ManyToOne(cascade=CascadeType.DETACH)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="shoppingcartid")
 	private ShoppingCart shoppingCart;
 	
