@@ -85,6 +85,16 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
         });
         return defer.promise;
     };
+    
+    acctFactory.retrieveAccount = function(username) {
+        console.log("retrieveAccount()");
+        var accountUrl = 'http://localhost:8080/profile/account/' + username;
+        var defer = $q.defer();
+        $http.get(accountUrl).then(function(response) {
+            defer.resolve(response.data);
+        });
+        return defer.promise;  
+    };
 
     acctFactory.validateUsername = function (username) {
         console.log("validateUsername()");
