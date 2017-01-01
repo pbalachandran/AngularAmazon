@@ -38,8 +38,7 @@ public class ShoppingCartController {
 	public ShoppingCart createShoppingCart(@PathVariable String username) {
 		Account act = actRepository.findByUsername(username);		
 		if (act != null) {
-			ShoppingCart sc = new ShoppingCart();
-			sc.setAccount(act);
+			ShoppingCart sc = new ShoppingCart(username);
 			return scRepository.save(sc);
 		}
 		return null;
@@ -67,7 +66,7 @@ public class ShoppingCartController {
 															   @PathVariable String status) {
 		Account act = actRepository.findByUsername(username);
 		if (act != null) {
-			return scRepository.findByAccountAndStatus(act, status);
+			return scRepository.findByUsernameAndStatus(username, status);
 		}
 		return null;
 	}
