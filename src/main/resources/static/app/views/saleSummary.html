@@ -1,4 +1,5 @@
-<div align="center" style="color:blue" ng-controller="SaleSummaryController">
+<div align="center" style="color:brown" ng-controller="SaleSummaryController">
+    <h4>Thank you for shopping@{Amazon}</h4>
     <div>
         <b>Invoice Id:</b>{{invoiceId}}
     </div>
@@ -7,13 +8,13 @@
         <label>Date: </label>{{date}}
     </div>
     <div>
-        <label>Total Before Taxes: </label>{{totalBeforeTaxes}}
+        <label>Total Before Taxes: </label>${{totalBeforeTaxes}}
     </div>
     <div>
         <label>Taxes: </label>${{taxes}}
     </div>
     <div>
-        <label>Total: </label>{{invoiceTotal}}
+        <label>Total: </label>${{invoiceTotal}}
     </div>
     <div>
         <label>Confirmation Code:</label>{{transactionConfirmation}}
