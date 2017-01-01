@@ -105,7 +105,7 @@ angular.module('AmazonApp').factory('AccountFactory', function ($http, $q, $loca
     };
     
     acctFactory.uniqueUsername = function (username) {
-        console.log("validateUsername()");
+        console.log("uniqueUsername()");
         var accountUrl = 'http://localhost:8080/profile/account/' + username;
         var defer = $q.defer();
         $http.get(accountUrl).
