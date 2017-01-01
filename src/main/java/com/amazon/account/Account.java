@@ -38,7 +38,7 @@ public class Account {
 	private CreditCard creditCard;
 	
 	@JsonManagedReference
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REFRESH, mappedBy="account")		
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REFRESH, mappedBy="account", orphanRemoval=true)		
 	private Set<ShoppingCart> shoppingCarts = new HashSet<ShoppingCart>();
 	
 	public Account() {
