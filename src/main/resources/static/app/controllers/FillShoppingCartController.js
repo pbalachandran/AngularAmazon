@@ -1,4 +1,4 @@
-angular.module('AmazonApp').controller('ShoppingCartFillController',
+angular.module('AmazonApp').controller('FillShoppingCartController',
                                        function($scope, $http, $routeParams, ShoppingCartFactory, InvoiceFactory) {
                                             $scope.shoppingCartId = $routeParams.shoppingCartId;
                                             $scope.ShoppingCartFactory = ShoppingCartFactory;

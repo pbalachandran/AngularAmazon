@@ -1,4 +1,4 @@
-angular.module('AmazonApp').controller('ShoppingCartsRetrieveController',
+angular.module('AmazonApp').controller('RetrieveShoppingCartsController',
                                        function ($scope, ShoppingCartFactory) {
                                            $scope.ShoppingCartFactory = ShoppingCartFactory;
     
