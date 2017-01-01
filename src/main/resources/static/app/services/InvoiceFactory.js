@@ -4,7 +4,7 @@ angular.module('AmazonApp').factory('InvoiceFactory',
                                     var inFactory = {};
                                     inFactory.checkout = function(shoppingCartId) {
                                         console.log("checkout(), shoppingCart: " + shoppingCartId);
-                                        $location.path('/shippingInfo').search({shoppingCartId:shoppingCartId});
+                                        $location.path('/createInvoice').search({shoppingCartId:shoppingCartId});
                                     };
     
                                     inFactory.createShippingInfo = function($scope) {

@@ -17,7 +17,7 @@ angular.module('AmazonApp').controller('InvoiceController',
                                                             var inPromise = 
                                                                 InvoiceFactory.createInvoice($scope.shoppingCartId, $scope.shippingInfoId, $scope.creditCardId);
                                                             inPromise.then(function(data) {
-                                                                $location.path('/displayInvoice').search({invoiceId:data.invoiceId}); 
+                                                                $location.path('/saleSummary').search({invoiceId:data.invoiceId}); 
                                                             });
                                                         });
                                                     });                                                                
