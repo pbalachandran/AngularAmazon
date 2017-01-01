@@ -38,5 +38,15 @@ angular.module('AmazonApp').factory('InvoiceFactory',
                                         });
                                         return defer.promise;
                                     };
+    
+                                    inFactory.retrieveInvoice = function(invoiceId) {
+                                        console.log("retrieveInvoice()");
+                                        var invoiceUrl = 'http://localhost:8080/checkout/invoice/' + invoiceId;
+                                        var defer = $q.defer();
+                                        $http.get(invoiceUrl).then(function(response) {
+                                            defer.resolve(response.data);
+                                        });
+                                        return defer.promise;
+                                    };
                                     return inFactory;
 });
