@@ -22,7 +22,7 @@ angular.module('AmazonApp').config(function($routeProvider) {
                                         templateUrl: '/app/views/shoppingCartFill.html'
                                 }).when('/createInvoice', {
                                         controller: 'InvoiceController',
-                                        templateUrl: '/app/views/shippingInfo.html'
+                                        templateUrl: '/app/views/invoice.html'
                                 }).when('/saleSummary', {
                                         controller: 'SaleSummaryController',
                                         templateUrl: '/app/views/saleSummary.html'
