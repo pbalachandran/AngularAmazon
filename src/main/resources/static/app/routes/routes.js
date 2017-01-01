@@ -20,8 +20,11 @@ angular.module('AmazonApp').config(function($routeProvider) {
                                 }).when('/shop', {
                                         controller: 'ShoppingCartFillController',
                                         templateUrl: '/app/views/shoppingCartFill.html'
-                                }).when('/shippingInfo', {
-                                    controller: 'ShippingInfoController',
-                                    templateUrl: '/app/views/shippingInfo.html'
+                                }).when('/createInvoice', {
+                                        controller: 'InvoiceController',
+                                        templateUrl: '/app/views/shippingInfo.html'
+                                }).when('/saleSummary', {
+                                        controller: 'SaleSummaryController',
+                                        templateUrl: '/app/views/saleSummary.html'
                                 }).otherwise({redirectTo: '/'});
                     });

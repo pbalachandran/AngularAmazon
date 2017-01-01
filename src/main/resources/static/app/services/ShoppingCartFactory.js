@@ -31,6 +31,17 @@ angular.module('AmazonApp').factory('ShoppingCartFactory',
                                             });
                                             return defer.promise;
                                         };
+                                        
+                                        scFactory.retrieveCart = function(shoppingCartId) {
+                                            console.log("retrieveCart(), shoppingCartId: " + shoppingCartId);
+                                            var cartURL = 'http://localhost:8080/shopping/cart/' + shoppingCartId;
+
+                                            var defer = $q.defer();
+                                            $http.get(cartURL).then(function(response) {
+                                                defer.resolve(response.data);
+                                            });
+                                            return defer.promise;
+                                        };
 
                                         scFactory.push = function(shoppingCartId, inventoryItemId, quantity) {
                                             console.log("push()");
