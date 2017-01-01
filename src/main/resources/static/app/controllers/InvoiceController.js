@@ -1,5 +1,5 @@
 angular.module('AmazonApp').controller('InvoiceController',
-                                       function($scope, AccountFactory, ShoppingCartFactory, InvoiceFactory, $routeParams, $location) {
+                                       function($scope, $routeParams, $location, AccountFactory, ShoppingCartFactory, InvoiceFactory) {
                                             $scope.shoppingCartId = $routeParams.shoppingCartId;
 
                                             $scope.createInvoice = function() {
