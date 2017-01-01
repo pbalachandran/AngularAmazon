@@ -1,9 +1,9 @@
-<div align="center" style="color:orange" ng-controller="RetrieveShoppingCartsController">
-    <form name="retrieveShoppingCartsForm" ng-submit="retrieveCarts()">
+<div align="center" style="color:olive" ng-controller="RetrieveInvoicesController">
+    <form name="retrieveInvoicesForm" ng-submit="retrieveCarts()">
         <div style="color:orange" align="center">
             <label>Username for Shopping Cart </label>
             <input type="text" name="username" ng-model="username" required validate-username/>
-            <div align="center" ng-messages="retrieveShoppingCartsForm.username.$error" role="alert">
+            <div align="center" ng-messages="retrieveInvoicesForm.username.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a username</div>
                 <div style="color:red" ng-message="validate">Enter a valid username</div>
             </div>
@@ -14,12 +14,12 @@
         </div>
     </form>
 
-    <div ng-if="isNoRetrievedCarts">
+    <div ng-if="isNoRetrievedInvoices">
         <br/>
         <b>No active carts found, please create a new one</b>
     </div>
-    
-    <div ng-repeat="shoppingCart in shoppingCarts">
+
+    <div ng-repeat="invoice in invoices">
         <br/>
         <div>
             <b>Shopping Cart Id:</b>{{shoppingCart.shoppingCartId}}

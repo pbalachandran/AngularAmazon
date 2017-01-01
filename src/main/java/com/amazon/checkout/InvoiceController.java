@@ -2,8 +2,11 @@ package com.amazon.checkout;
 
 import java.sql.Date;
 import java.text.DecimalFormat;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Random;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,6 +80,18 @@ public class InvoiceController {
 			}
 		}
 		return invoice;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/invoices/{username}")
+	public Set<Invoice> retrieveInvoices(@PathVariable String username) {
+		Set<ShoppingCart> carts = scRepository.findByUsernameAndStatus(username, "complete");
+		Iterator<ShoppingCart> iter = carts.iterator();
+		Set<Invoice> invoices = new HashSet<Invoice>();
+		while(iter.hasNext()) {
+			ShoppingCart sc = iter.next();
+			invoices.add(sc.getInvoice());
+		}
+		return invoices;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/invoice/{invoiceId}")

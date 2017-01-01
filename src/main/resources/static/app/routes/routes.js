@@ -12,19 +12,21 @@ angular.module('AmazonApp').config(function($routeProvider) {
                                         controller: 'ShoppingCartController',
                                         templateUrl: '/app/views/shoppingCart.html'
                                 }).when('/displayCart', {
-                                        controller: 'ShoppingCartDisplayController',
-                                        templateUrl: '/app/views/shoppingCartDisplay.html'
+                                        controller: 'DisplayShoppingCartController',
+                                        templateUrl: '/app/views/displayShoppingCart.html'
                                 }).when('/retrieveCarts', {
-                                        controller: 'ShoppingCartsRetrieveController',
-                                        templateUrl: '/app/views/shoppingCartsRetrieve.html'
+                                        controller: 'RetrieveShoppingCartsController',
+                                        templateUrl: '/app/views/retrieveShoppingCarts.html'
                                 }).when('/shop', {
-                                        controller: 'ShoppingCartFillController',
-                                        templateUrl: '/app/views/shoppingCartFill.html'
+                                        controller: 'FillShoppingCartController',
+                                        templateUrl: '/app/views/fillShoppingCart.html'
                                 }).when('/createInvoice', {
                                         controller: 'InvoiceController',
                                         templateUrl: '/app/views/invoice.html'
+                                }).when('/retrieveInvoices', {
+                                        controller: 'RetrieveInvoicesController',
+                                        templateUrl: '/app/views/retrieveInvoices.html'
                                 }).when('/saleSummary', {
                                         controller: 'SaleSummaryController',
                                         templateUrl: '/app/views/saleSummary.html'
-                                }).otherwise({redirectTo: '/'});
-                    });
+                                }).otherwise({redirectTo: '/'});                    });
