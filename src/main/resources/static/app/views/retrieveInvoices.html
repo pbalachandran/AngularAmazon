@@ -1,7 +1,7 @@
 <div align="center" style="color:olive" ng-controller="RetrieveInvoicesController">
-    <form name="retrieveInvoicesForm" ng-submit="retrieveCarts()">
-        <div style="color:orange" align="center">
-            <label>Username for Shopping Cart </label>
+    <form name="retrieveInvoicesForm" ng-submit="retrieveInvoices()">
+        <div style="color:olive" align="center">
+            <label>Username for Invoices</label>
             <input type="text" name="username" ng-model="username" required validate-username/>
             <div align="center" ng-messages="retrieveInvoicesForm.username.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a username</div>
@@ -10,57 +10,35 @@
         </div>
         <div><br/></div>
         <div>
-            <button type="submit">Submit</button>
+            <button type="submit">Retrieve Invoices</button>
         </div>
     </form>
 
     <div ng-if="isNoRetrievedInvoices">
         <br/>
-        <b>No active carts found, please create a new one</b>
+        <b>No completed invoices found</b>
     </div>
 
     <div ng-repeat="invoice in invoices">
         <br/>
         <div>
-            <b>Shopping Cart Id:</b>{{shoppingCart.shoppingCartId}}
+            <b>Invoice Id:</b>{{invoice.invoiceId}}
+        </div>
+        <br/>
+        <div>
+            <label>Date: </label>{{invoice.date}}
         </div>
         <div>
-            <br/>
-        </div>
-        <div ng-hide="!shoppingCart.orderItems.length">
-            <div ng-repeat="orderItem in orderItems">
-                <div>
-                    <b>Name:</b>{{orderItem.inventoryItem.name}}
-                </div>
-                <div>
-                    <b>Description:</b>{{orderItem.inventoryItem.description}}
-                </div>
-                <div>
-                    <b>Unit Price:</b>{{orderItem.inventoryItem.unitPrice | currency}}
-                </div>
-                <div>
-                    <b>Quantity:</b>{{orderItem.quantity}}
-                </div>
-                <div>
-                    <p>
-                        <a href="javascript:void(0)" style="color:red" ng-click="removeFromCart(shoppingCartId, orderItem.orderItemId)">Remove</a>
-                    </p>
-                </div>
-                <div>
-                    <br/>
-                </div>
-            </div>
+            <label>Total Before Taxes: </label>${{invoice.totalBeforeTaxes}}
         </div>
         <div>
-            <b>Status:</b>{{shoppingCart.status}}
+            <label>Taxes: </label>${{invoice.taxes}}
         </div>
         <div>
-            <br/>
+            <label>Total: </label>${{invoice.invoiceTotal}}
         </div>
-        <div ng-hide="shoppingCart.status == active">
-            <p>
-                <a href="javascript:void(0)" style="color:green" ng-click="ShoppingCartFactory.shop(shoppingCart.shoppingCartId)">Shop</a>
-            </p>
+        <div>
+            <label>Confirmation Code:</label>{{invoice.transactionConfirmation}}
         </div>
     </div>
 </div>

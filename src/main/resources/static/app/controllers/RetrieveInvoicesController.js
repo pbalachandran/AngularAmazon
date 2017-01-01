@@ -1,4 +1,4 @@
-angular.module('AmazonApp').controller('RetreiveInvoicesController',
+angular.module('AmazonApp').controller('RetrieveInvoicesController',
                                        function($scope, InvoiceFactory) {
     
                                            $scope.retrieveInvoices = function() {
@@ -6,6 +6,7 @@ angular.module('AmazonApp').controller('RetreiveInvoicesController',
                                                var inPromise = InvoiceFactory.retrieveInvoices($scope.username);
                                                inPromise.then(function(data) {
                                                    $scope.invoices = data;
+                                                   $scope.isNoRetrievedInvoices = !data.length;
                                                });
                                            };
                                        });
