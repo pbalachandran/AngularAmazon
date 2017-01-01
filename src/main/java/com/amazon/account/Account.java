@@ -14,7 +14,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.amazon.shoppingcart.ShoppingCart;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="account")
@@ -33,12 +32,12 @@ public class Account {
 	@Column(name="password")
 	private String password;
 	
-	@OneToOne(cascade=CascadeType.MERGE)
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="creditcardid")
 	private CreditCard creditCard;
 	
-	@JsonManagedReference
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REFRESH, mappedBy="account", orphanRemoval=true)		
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.REFRESH)
+	@JoinColumn(name="shoppingcartid")
 	private Set<ShoppingCart> shoppingCarts = new HashSet<ShoppingCart>();
 	
 	public Account() {

@@ -10,14 +10,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.amazon.account.Account;
 import com.amazon.checkout.Invoice;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -37,10 +34,8 @@ public class ShoppingCart {
 	@JoinColumn(name="invoiceid")
 	private Invoice invoice;
 	
-	@JsonBackReference
-	@ManyToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="username")
-	private Account account;
+	@Column(name="username")
+	private String username;
 	
 	@Column(name="total")
 	private Double total;
@@ -49,6 +44,11 @@ public class ShoppingCart {
 	private String status;
 	
 	public ShoppingCart() {
+		this.status = "active";
+	}
+	
+	public ShoppingCart(String username) {
+		this.username = username;
 		this.status = "active";
 	}
 	
@@ -83,19 +83,19 @@ public class ShoppingCart {
 	public void setTotal(Double total) {
 		this.total = total;
 	}
-	
-	public Account getAccount() {
-		return account;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getStatus() {
 		return status;
 	}
-
+	
 	public void setStatus(String status) {
 		this.status = status;
 	}
