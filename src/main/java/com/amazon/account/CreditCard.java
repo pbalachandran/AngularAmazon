@@ -29,7 +29,7 @@ public class CreditCard {
 	@Column(name = "creditcardnumber")
 	private String creditCardNumber;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="creditcardtypeid")
 	private CreditCardType creditCardType;
 				

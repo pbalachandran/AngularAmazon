@@ -32,7 +32,7 @@ public class Account {
 	@Column(name="password")
 	private String password;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="creditcardid")
 	private CreditCard creditCard;
 	
