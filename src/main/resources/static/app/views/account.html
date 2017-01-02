@@ -3,7 +3,7 @@
         <div>
             <label>Username</label>
             <input type="text" name="username" ng-model="username" required unique-username/>
-            <div align="center" ng-messages="accountCreationForm.username.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.username.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a username</div>
                 <div style="color:red" ng-message="unique">Username already exists, pick a new one</div>
             </div>
@@ -14,7 +14,7 @@
         <div>
             <label>Firstname</label>
             <input type="text" name="firstname" ng-model="firstname" required/>
-            <div align="center" ng-messages="accountCreationForm.firstname.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.firstname.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a value</div>
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div>
             <label>Lastname</label>
             <input type="text" name="lastname" ng-model="lastname" required/>
-            <div align="center" ng-messages="accountCreationForm.lastname.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.lastname.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a value</div>
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div>
             <label>Password</label>
             <input type="password" name="password" ng-model="password" required/>
-            <div align="center" ng-messages="accountCreationForm.password.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.password.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a value</div>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div>
             <label>CreditCard#</label>
             <input type="text" name="creditCardNumber" ng-model="creditCardNumber" required/>
-            <div align="center" ng-messages="accountCreationForm.creditCardNumber.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.creditCardNumber.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a value</div>
             </div>            
         </div>
@@ -47,7 +47,7 @@
             <label>CreditCardType</label>
             <select name="ccTypeName" ng-model="ccTypeName" ng-options="cardType for cardType in cardTypes" required >
                 <option value="">-- Select a Credit Card --</option>
-                <div align="center" ng-messages="accountCreationForm.ccTypeName.$error" role="alert">
+                <div align="left" ng-messages="accountCreationForm.ccTypeName.$error" role="alert">
                     <div style="color:red" ng-message="required">Select a Credit Card</div>
                 </div> 
             </select>
@@ -56,7 +56,7 @@
         <div>
             <label>ExpiryDate</label>
             <input type="text" name="expiryDate" ng-model="expiryDate" required/>
-            <div align="center" ng-messages="accountCreationForm.expiryDate.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.expiryDate.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a value</div>
             </div> 
         </div>
@@ -64,7 +64,7 @@
         <div>
             <label>SecurityCode</label>
             <input type="text" name="securityCode" ng-model="securityCode" required/>
-            <div align="center" ng-messages="accountCreationForm.securityCode.$error" role="alert">
+            <div align="left" ng-messages="accountCreationForm.securityCode.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a value</div>
             </div>
         </div>

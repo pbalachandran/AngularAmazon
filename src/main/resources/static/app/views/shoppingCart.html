@@ -3,7 +3,7 @@
         <div>
             <label>Username for Shopping Cart </label>
             <input type="text" name="username" ng-model="username" required validate-username/>
-            <div align="center" ng-messages="shoppingCartForm.username.$error" role="alert">
+            <div align="left" ng-messages="shoppingCartForm.username.$error" role="alert">
                 <div style="color:red" ng-message="required">Enter a username</div>
                 <div style="color:red" ng-message="validate">Enter a valid username</div>
             </div>
