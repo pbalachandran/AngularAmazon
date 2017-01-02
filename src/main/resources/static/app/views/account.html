@@ -13,39 +13,60 @@
         </div>
         <div>
             <label>Firstname</label>
-            <input type="text" ng-model="firstname" />
+            <input type="text" name="firstname" ng-model="firstname" required/>
+            <div align="center" ng-messages="accountCreationForm.firstname.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a value</div>
+            </div>
         </div>
          <br/>
         <div>
             <label>Lastname</label>
-            <input type="text" ng-model="lastname" />
+            <input type="text" name="lastname" ng-model="lastname" required/>
+            <div align="center" ng-messages="accountCreationForm.lastname.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a value</div>
+            </div>
         </div>
         <br/>
         <div>
             <label>Password</label>
-            <input type="password" ng-model="password"/>
+            <input type="password" name="password" ng-model="password" required/>
+            <div align="center" ng-messages="accountCreationForm.password.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a value</div>
+            </div>
         </div>
         <br/><br/>
         <div>
             <label>CreditCard#</label>
-            <input type="text" ng-model="creditCardNumber" />
+            <input type="text" name="creditCardNumber" ng-model="creditCardNumber" required/>
+            <div align="center" ng-messages="accountCreationForm.creditCardNumber.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a value</div>
+            </div>            
         </div>
         <br/><br/>
         <div>
-            <label> CreditCardType </label>
-            <select ng-model="ccTypeName">
-                <option ng-repeat="cardType in cardTypes">{{cardType}}</option>
+            <label>CreditCardType</label>
+            <select name="ccTypeName" ng-model="ccTypeName" ng-options="cardType for cardType in cardTypes" required >
+                <option value="">-- Select a Credit Card --</option>
+                <div align="center" ng-messages="accountCreationForm.ccTypeName.$error" role="alert">
+                    <div style="color:red" ng-message="required">Select a Credit Card</div>
+                </div> 
             </select>
         </div>
         <br/><br/>
         <div>
             <label>ExpiryDate</label>
-            <input type="text" ng-model="expiryDate" />
+            <input type="text" name="expiryDate" ng-model="expiryDate" required/>
+            <div align="center" ng-messages="accountCreationForm.expiryDate.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a value</div>
+            </div> 
         </div>
         <br/><br/>
         <div>
             <label>SecurityCode</label>
-            <input type="text" ng-model="securityCode"/>
+            <input type="text" name="securityCode" ng-model="securityCode" required/>
+            <div align="center" ng-messages="accountCreationForm.securityCode.$error" role="alert">
+                <div style="color:red" ng-message="required">Enter a value</div>
+            </div>
         </div>
          <br/><br/>
         <div>
