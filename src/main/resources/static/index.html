@@ -27,22 +27,21 @@
     <body>
         <br/>
         <p align="center"><img src="/app/views/images/amazon-logo.jpg" alt="{Amazon}"/></p>
-        <div style="width:100%;">
-            <div id="left" style="float:left; width:30%;">
-                <a href="#/catalog" style="color:blue">Browse Catalog</a>
-            </div>
-            <div id="right" style="float:right; width:30%; margin-left:10px;">
-                <div><a href="#/profile" style="color:brown">Create User Profile</a></div>
-                <div><a href="#/createCart" style="color:green">Create Shopping Cart</a></div>
-                <div><a href="#/retrieveCarts" style="color:orange">Retrieve Active Carts</a></div>
-                <div><a href="#/retrieveInvoices" style="color:teal">Retrieve Invoices</a></div>
-            </div>
+        <div align="center">
+            <div><a href="#/catalog" style="color:blue">Browse Catalog</a></div>
+            <div><a href="#/profile" style="color:brown">Create User Profile</a></div>
+            <div><a href="#/createCart" style="color:green">Create Shopping Cart</a></div>
+            <div><a href="#/retrieveCarts" style="color:orange">Retrieve Active Carts</a></div>
+            <div><a href="#/retrieveInvoices" style="color:teal">Retrieve Invoices</a></div>
             <div>
                 <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div ng-view></div>
+                <table>
+                    <tr>
+                        <td>
+                            <div ng-view></div>
+                        </td>
+                    </tr>
+                </table>            
             </div>
         </div>
     </body>
