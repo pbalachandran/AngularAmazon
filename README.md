@@ -1,7 +1,6 @@
 # AngularAmazon
 
 + Basic Shopping Cart application
-
 + AngularJS v1.4.9
 + SpringBoot v1.3.2.RELEASE
 + Maven
