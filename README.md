@@ -10,6 +10,7 @@
     + Routes
     + Factory
     + Custom Directives - form validation
+    + Filter
     + $http 
     + $location - search variables
     + $q - Promises
@@ -19,7 +20,7 @@
     + Jackson Data Binding
     + MySQL
 
-+ Uses Cases
++ Implemented Uses Cases
   + Browse Catalog
   + Create User Profile
   + Create Shopping Cart
@@ -28,7 +29,7 @@
   + Display Shopping Cart
   + Delete Shopping Cart
   + Retrieve Shopping Carts for User
-  + Check out/Create Invoice
+  + Check Out/Create Invoice
   + Retrieve Invoices for User 
 
 + Pending User Cases
