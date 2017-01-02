@@ -4,8 +4,8 @@ angular.module('AmazonApp').controller('AccountController',
                                                                 "MASTERCARD",
                                                                 "DISCOVER"];
 
-                                            $scope.submit = function() {
-                                                                console.log("submit()");
-                                                                AccountFactory.createAccount($scope);
-                                                            };
+                                            $scope.createAccount = function() {
+                                                                        console.log("createAccount()");
+                                                                        AccountFactory.createAccount($scope);
+                                                                   };
                                        });

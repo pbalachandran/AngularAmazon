@@ -1,5 +1,5 @@
 <div align="center" style="color:brown" ng-controller="AccountController" >
-    <form name="accountCreationForm" ng-submit="submit()">
+    <form name="accountCreationForm" ng-submit="createAccount()">
         <div>
             <label>Username</label>
             <input type="text" name="username" ng-model="username" required unique-username/>
@@ -70,7 +70,7 @@
         </div>
          <br/><br/>
         <div>
-            <button type="submit">Submit</button>
+            <button type="submit">Create Account</button>
         </div>
     </form>
 </div>
