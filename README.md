@@ -2,7 +2,14 @@
 
 + Basic Shopping Cart application
 
-+ AngularJS version 1.4.9
++ AngularJS v1.4.9
++ SpringBoot v1.3.2.RELEASE
++ Maven
++ Mockito
++ SpringData/JPA
++ MySQL
++ gson
++ WebJars (frontend assets)
 
 + Concepts in use
   + Front End - AngularJS
@@ -18,7 +25,6 @@
     + Restful backend
     + JPA
     + Jackson Data Binding
-    + MySQL
 
 + Implemented Uses Cases
   + Browse Catalog
